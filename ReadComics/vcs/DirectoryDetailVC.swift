@@ -43,13 +43,13 @@ class DirectoryDetailVC: UITableViewController {
         reloadDirectory()
     }
 
-//    TODO -> this should navigate to the comic detail
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "directoryDetail" {
-//            let destination = segue.destination as! DirectoryDetailVC
-//            destination.directory = sender as? Directory
-//        }
-//    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "readComic" {
+            let destination = segue.destination as! ReadComicVC
+            destination.comic = sender as? Comic
+        }
+    }
     
     // MARK: - IBActions
     
@@ -125,7 +125,17 @@ class DirectoryDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let indexPath = tableView.indexPathForSelectedRow as IndexPath! {
+        guard let tableSection = TableSection(rawValue: indexPath.section) else {
+            return
+        }
+        guard let indexPath = tableView.indexPathForSelectedRow as IndexPath! else {
+            return
+        }
+        
+        if tableSection == TableSection.comics {
+            let comic = self.tableData[TableSection.comics]?[indexPath.row] as? Comic
+            performSegue(withIdentifier: "readComic", sender: comic)
+        } else {
             self.directory = self.tableData[TableSection.directories]?[indexPath.row] as? Directory
             reloadDirectory()
         }

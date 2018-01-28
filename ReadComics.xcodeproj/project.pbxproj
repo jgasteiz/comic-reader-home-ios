@@ -10,7 +10,7 @@
 		8B20EB2A201B21320051ED71 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20EB29201B21320051ED71 /* Page.swift */; };
 		8B8F1E73201A551A00A8F2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F1E72201A551A00A8F2F0 /* AppDelegate.swift */; };
 		8B8F1E75201A551A00A8F2F0 /* DirectoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F1E74201A551A00A8F2F0 /* DirectoryDetailVC.swift */; };
-		8B8F1E77201A551A00A8F2F0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F1E76201A551A00A8F2F0 /* SecondViewController.swift */; };
+		8B8F1E77201A551A00A8F2F0 /* ReadComicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F1E76201A551A00A8F2F0 /* ReadComicVC.swift */; };
 		8B8F1E7A201A551A00A8F2F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F1E78201A551A00A8F2F0 /* Main.storyboard */; };
 		8B8F1E7C201A551A00A8F2F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F1E7B201A551A00A8F2F0 /* Assets.xcassets */; };
 		8B8F1E7F201A551A00A8F2F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F1E7D201A551A00A8F2F0 /* LaunchScreen.storyboard */; };
@@ -46,7 +46,7 @@
 		8B8F1E6F201A551A00A8F2F0 /* ReadComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8F1E72201A551A00A8F2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B8F1E74201A551A00A8F2F0 /* DirectoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryDetailVC.swift; sourceTree = "<group>"; };
-		8B8F1E76201A551A00A8F2F0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8B8F1E76201A551A00A8F2F0 /* ReadComicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadComicVC.swift; sourceTree = "<group>"; };
 		8B8F1E79201A551A00A8F2F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B8F1E7B201A551A00A8F2F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B8F1E7E201A551A00A8F2F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				8B8F1E74201A551A00A8F2F0 /* DirectoryDetailVC.swift */,
-				8B8F1E76201A551A00A8F2F0 /* SecondViewController.swift */,
+				8B8F1E76201A551A00A8F2F0 /* ReadComicVC.swift */,
 			);
 			path = vcs;
 			sourceTree = "<group>";
@@ -362,10 +362,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ReadComics/Pods-ReadComics-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -379,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B8F1E77201A551A00A8F2F0 /* SecondViewController.swift in Sources */,
+				8B8F1E77201A551A00A8F2F0 /* ReadComicVC.swift in Sources */,
 				8B8F1EA7201A5F9400A8F2F0 /* Comic.swift in Sources */,
 				8B8F1E73201A551A00A8F2F0 /* AppDelegate.swift in Sources */,
 				8B8F1E75201A551A00A8F2F0 /* DirectoryDetailVC.swift in Sources */,
