@@ -17,6 +17,7 @@ class ReadComicsApiClient {
     let readerUrl: String
     let directoryApiUrl: String
     let comicApiUrl: String
+    let pageApiUrl: String
     
     init() {
         if (self.localMode) {
@@ -27,6 +28,7 @@ class ReadComicsApiClient {
         
         directoryApiUrl = "\(readerUrl)/api/directory/"
         comicApiUrl = "\(readerUrl)/api/comic/"
+        pageApiUrl = "\(readerUrl)/api/page/"
     }
     
     func getDirectoryContents(
@@ -61,38 +63,36 @@ class ReadComicsApiClient {
         }
     }
     
-    func getPageImage (
+    func getPageImageSrc (
         comicPath: String,
-        pageNum: Int,
-        onPageFetched: @escaping (Page) -> Void,
-        onError: @escaping () -> Void) {
+        pageNum: Int) -> String {
         
-        let url = "\(comicApiUrl)\(comicPath)/\(pageNum)/"
+        return "\(pageApiUrl)\(comicPath)/\(pageNum)/"
         
-        Alamofire
-            .request(
-                url,
-                method: .get,
-                encoding: JSONEncoding.default
-            )
-            .responseJSON{ response in
-                switch response.result {
-                case .success:
-                    guard let jsonResponse = response.result.value as? NSDictionary else {
-                        print("No json found in api response - getPageImage")
-                        return
-                    }
-                    let page = Page(
-                        src: "\(self.readerUrl)\(jsonResponse["page_src"] as! String)",
-                        hasNextPage: jsonResponse["has_next_page"] as! Bool,
-                        hasPreviousPage: jsonResponse["has_previous_page"] as! Bool
-                    )
-                    onPageFetched(page)
-                case .failure(let error):
-                    debugPrint(error)
-                    onError()
-                }
-        }
+//        Alamofire
+//            .request(
+//                url,
+//                method: .get,
+//                encoding: JSONEncoding.default
+//            )
+//            .responseJSON{ response in
+//                switch response.result {
+//                case .success:
+//                    guard let jsonResponse = response.result.value as? NSDictionary else {
+//                        print("No json found in api response - getPageImage")
+//                        return
+//                    }
+//                    let page = Page(
+//                        src: "\(self.readerUrl)\(jsonResponse["page_src"] as! String)",
+//                        hasNextPage: jsonResponse["has_next_page"] as! Bool,
+//                        hasPreviousPage: jsonResponse["has_previous_page"] as! Bool
+//                    )
+//                    onPageFetched(page)
+//                case .failure(let error):
+//                    debugPrint(error)
+//                    onError()
+//                }
+//        }
     }
     
     // MARK: - Private functions
