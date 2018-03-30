@@ -6,8 +6,8 @@ target 'ReadComics' do
   use_frameworks!
 
   # Pods for comic-tracker-ios
-  pod 'Alamofire', '~> 4.6'
-  pod 'AlamofireImage', '~> 3.3'
+  pod 'Alamofire', '~> 4.7.0'
+  pod 'AlamofireImage', '~> 3.3.0'
 
 end
 
