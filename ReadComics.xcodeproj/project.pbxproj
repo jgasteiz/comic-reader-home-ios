@@ -555,10 +555,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY37NK824H;
+				DEVELOPMENT_TEAM = YE3SHNA22A;
 				INFOPLIST_FILE = ReadComics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jgasteiz.ReadComics;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jgasteiz.ComicReaderHomeIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -571,10 +571,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY37NK824H;
+				DEVELOPMENT_TEAM = YE3SHNA22A;
 				INFOPLIST_FILE = ReadComics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jgasteiz.ReadComics;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jgasteiz.ComicReaderHomeIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

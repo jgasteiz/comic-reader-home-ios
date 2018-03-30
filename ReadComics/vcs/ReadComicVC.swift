@@ -29,11 +29,11 @@ class ReadComicVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
-
     
     // MARK: - Overrides
     
@@ -57,7 +57,7 @@ class ReadComicVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        navigationBar.isHidden = true
         loadCurrentPage()
     }
 
@@ -66,14 +66,6 @@ class ReadComicVC: UIViewController {
     
     @IBAction func exit(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func previousPage(_ sender: Any) {
-        _previousPage()
-    }
-    
-    @IBAction func nextPage(_ sender: Any) {
-        _nextPage()
     }
     
     // MARK: - Private functions
@@ -86,9 +78,9 @@ class ReadComicVC: UIViewController {
         
         let pageUrlString = apiClient.getPageImageSrc(
             comicPath: comic.path,
-            pageNum: self.currentPageNum
+            pageNum: currentPageNum
         )
-        self.setPageImage(currentPageURL: URL(string: pageUrlString))
+        setPageImage(currentPageURL: URL(string: pageUrlString))
     }
     
     private func setPageImage(currentPageURL: URL?) {
@@ -96,7 +88,9 @@ class ReadComicVC: UIViewController {
             print("setPageImage didn't get a proper URL")
             return
         }
-        imageView.af_setImage(withURL: currentPageURL)
+        imageView.af_setImage(withURL: currentPageURL, completion: { _ in
+            self.updateScrollViewZoomScale(size: self.view.bounds.size)
+        })
     }
     
     private func _previousPage() {
@@ -150,14 +144,15 @@ extension ReadComicVC: UIScrollViewDelegate {
     func updateConstraintsForSize(size: CGSize) {
         // Update the top/bottom and leading/trailing constraints.
         // General rule: always stick to top and horizontally centered.
-        
         view.layoutIfNeeded()
-        imageViewTopConstraint.constant = 0
-        imageViewBottomConstraint.constant = max(0, (size.height - imageView.frame.height) / 2)
-        
+        let topBottomOffset = max(0, (size.height - imageView.frame.height) / 2)
         let sideOffset = max(0, (size.width - imageView.frame.width) / 2)
+        imageViewTopConstraint.constant = topBottomOffset
+        imageViewBottomConstraint.constant = topBottomOffset
         imageViewLeadingConstraint.constant = sideOffset
         imageViewTrailingConstraint.constant = sideOffset
+        view.layoutIfNeeded()
+        
     }
     
     @objc func handleTapOnScrollView(_ sender: UITapGestureRecognizer) {
@@ -175,9 +170,9 @@ extension ReadComicVC: UIScrollViewDelegate {
         } else if tapXLocation > 80 {
             _previousPage()
         }
-//        else {
-//            navigationBar.isHidden = !navigationBar.isHidden
-//        }
+        else {
+            navigationBar.isHidden = !navigationBar.isHidden
+        }
     }
     
     @objc func screenRotated() {

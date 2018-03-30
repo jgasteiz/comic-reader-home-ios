@@ -56,56 +56,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSX-Xn-e1A">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wSX-Xn-e1A">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xrf-jh-ORH">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="602"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xrf-jh-ORH">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Xrf-jh-ORH" secondAttribute="bottom" constant="1" id="Edb-0M-7hJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xrf-jh-ORH" secondAttribute="bottom" id="Edb-0M-7hJ"/>
                                     <constraint firstItem="Xrf-jh-ORH" firstAttribute="top" secondItem="wSX-Xn-e1A" secondAttribute="top" id="Kff-9o-acv"/>
-                                    <constraint firstItem="Xrf-jh-ORH" firstAttribute="centerY" secondItem="wSX-Xn-e1A" secondAttribute="centerY" id="SSc-eF-10U"/>
-                                    <constraint firstItem="Xrf-jh-ORH" firstAttribute="centerX" secondItem="wSX-Xn-e1A" secondAttribute="centerX" id="bnH-Br-4JE"/>
                                     <constraint firstItem="Xrf-jh-ORH" firstAttribute="leading" secondItem="wSX-Xn-e1A" secondAttribute="leading" id="dSp-ZF-bx3"/>
                                     <constraint firstAttribute="trailing" secondItem="Xrf-jh-ORH" secondAttribute="trailing" id="hnR-FH-AbQ"/>
                                 </constraints>
                             </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXG-oJ-qWb">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWT-4L-IRV">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Exit" id="fgH-t2-nEo">
-                                        <connections>
-                                            <action selector="exit:" destination="phO-bI-wPY" id="SoS-sw-f0Y"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <navigationItem title="Title" id="6YF-XA-Fzl">
+                                        <barButtonItem key="leftBarButtonItem" title="Exit" id="Kv3-XK-A3j">
+                                            <connections>
+                                                <action selector="exit:" destination="phO-bI-wPY" id="1rh-LM-7iQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
-                            </toolbar>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yXG-oJ-qWb" firstAttribute="leading" secondItem="fAd-xl-Jrw" secondAttribute="leading" id="3Wt-qT-9HO"/>
-                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="top" secondItem="fAd-xl-Jrw" secondAttribute="bottom" constant="-603" id="APi-3T-eqk"/>
-                            <constraint firstItem="yXG-oJ-qWb" firstAttribute="top" secondItem="fAd-xl-Jrw" secondAttribute="top" id="eat-UB-R3d"/>
-                            <constraint firstItem="fAd-xl-Jrw" firstAttribute="bottom" secondItem="wSX-Xn-e1A" secondAttribute="bottom" id="g2e-8l-CV3"/>
-                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="leading" secondItem="fAd-xl-Jrw" secondAttribute="leading" id="gWk-hw-EU8"/>
-                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="trailing" secondItem="fAd-xl-Jrw" secondAttribute="trailing" id="lhI-iZ-PFy"/>
-                            <constraint firstItem="yXG-oJ-qWb" firstAttribute="trailing" secondItem="fAd-xl-Jrw" secondAttribute="trailing" id="z52-iV-XoL"/>
+                            <constraint firstItem="zWT-4L-IRV" firstAttribute="trailing" secondItem="fAd-xl-Jrw" secondAttribute="trailing" id="4a4-hT-sat"/>
+                            <constraint firstItem="zWT-4L-IRV" firstAttribute="leading" secondItem="fAd-xl-Jrw" secondAttribute="leading" id="4ke-N5-Sh3"/>
+                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="leading" secondItem="fAd-xl-Jrw" secondAttribute="leading" id="6id-1x-IwS"/>
+                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="trailing" secondItem="fAd-xl-Jrw" secondAttribute="trailing" id="FhS-7T-9PQ"/>
+                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="top" secondItem="fAd-xl-Jrw" secondAttribute="top" id="aLI-7T-5OY"/>
+                            <constraint firstItem="wSX-Xn-e1A" firstAttribute="bottom" secondItem="fAd-xl-Jrw" secondAttribute="bottom" id="rCf-rm-XRI"/>
+                            <constraint firstItem="zWT-4L-IRV" firstAttribute="top" secondItem="fAd-xl-Jrw" secondAttribute="top" id="z59-6F-GNW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fAd-xl-Jrw"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Xrf-jh-ORH" id="KBh-5r-Jxs"/>
+                        <outlet property="imageViewBottomConstraint" destination="Edb-0M-7hJ" id="lc8-JK-iod"/>
                         <outlet property="imageViewLeadingConstraint" destination="dSp-ZF-bx3" id="BGR-kI-75m"/>
                         <outlet property="imageViewTopConstraint" destination="Kff-9o-acv" id="beF-HO-LzX"/>
                         <outlet property="imageViewTrailingConstraint" destination="hnR-FH-AbQ" id="oR5-2b-pef"/>
+                        <outlet property="navigationBar" destination="zWT-4L-IRV" id="Bms-5Y-aet"/>
                         <outlet property="scrollView" destination="wSX-Xn-e1A" id="Pl8-JQ-2Ps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WjA-hn-brp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2439" y="-299"/>
+            <point key="canvasLocation" x="2437.5999999999999" y="-299.10044977511245"/>
         </scene>
         <!--Downloads-->
         <scene sceneID="wg7-f3-ORb">
